@@ -1,8 +1,9 @@
-let todoId = 1
+let todoId = JSON.parse(window.localStorage.getItem('todoList')) || [];
+todoId = todoId[todoId.length - 1]?.id || 0;
 
 export const addTodos = (title) => ({
   type: "ADD_TODO",
-  id: todoId++,
+  id: ++todoId,
   title,
 })
 

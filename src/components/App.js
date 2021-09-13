@@ -1,15 +1,16 @@
-import AddTodo from "./AddTodo"
-import "../App.css"
-import TodoList from "./TodoList"
+import { Route } from "react-router-dom";
+import TodoLists from "./TodoLists";
+import Home from "./Home";
+import Navbar from "./Navbar";
 
-function App() {
+const App = () => {
   return (
-    <div className='App'>
-      <h1>Todo List Project with Redux</h1>
-      <AddTodo />
-      <TodoList />
+    <div>
+      <Navbar />
+      <Route path={"/"} exact component={Home} />
+      <Route path={"/todolist"} component={TodoLists} />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

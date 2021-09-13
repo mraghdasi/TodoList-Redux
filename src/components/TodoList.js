@@ -2,11 +2,12 @@ import Todo from "./Todo"
 import { connect } from "react-redux"
 import { completeTodo } from "./../actions"
 
-const TodoList = ({ todos, completeTodo }) => {
+const TodoList = ({ _todos, completeTodo }) => {
+  let todoLists = JSON.parse(window.localStorage.getItem('todoList'))||[];
   return (
     <div className={"item-list"}>
-      {todos.map((item) => (
-        <Todo key={item.id} {...item} onClick={() => completeTodo(item.id)} deletId={item.id} />
+      {(todoLists).map((item) => (
+        <Todo key={item.id } {...item} onClick={() => completeTodo(item.id )} deletId={item.id} />
       ))}
     </div>
   )
